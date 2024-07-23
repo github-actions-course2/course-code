@@ -8,7 +8,7 @@ jobs:
     env-vars-and-context:
         runs-on: ubuntu-latest
         # if: $GITHUB_REF == 'refs/heads/main' DON DO THIS
-        if: github.ref == 'regs/heads/main'
+        if: github.ref == 'refs/heads/main'
         env:
             JOB_LEVEL_ENV: Available to all steps in env-vars-and-context job
         steps:
