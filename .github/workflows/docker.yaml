@@ -14,7 +14,7 @@ jobs:
       ports:
         - 80
       # volumes:
-      #   -  vol_name:/path/in/container
+      #   - vol_name:/path/in/container
       #   - /path/to/container
       #   - /path/in/host:/path/in/container
       # options: --cpus 1
