@@ -27,18 +27,18 @@ jobs:
                   run: echo $API_URL
                 - name: Create a file
                   run: echo 'Some text' > text.txt
-                 name: Container in a step
-                 uses: docker://node:18.16-alpine3.17
-                 with:
-                    entrypoint: '/usr/local/bin/node'
+                - name: Container in a Step
+                  uses: docker://node:18.16-alpine3.17
+                  with:
+                    entrypoint: /usr/local/bin/node
                     args: -p 2+3
                 - name: Log node version
-                 uses: docker://node:18.16-alpine3.17
-                 with:
-                  args: -v
+                  uses: docker://node:18.16-alpine3.17
+                  with:
+                    args: -v
                 - name: Show file contents
-                 uses: docker://node:18.16-alpine3.17
-                 with:
+                  uses: docker://node:18.16-alpine3.17
+                  with:
                     entrypoint: cat
                     args: text.txt
                 - uses: actions/checkout@v3
@@ -47,3 +47,4 @@ jobs:
                   with:
                     entrypoint: ./script.sh
                     args: "Some string"
+          
