@@ -4,19 +4,13 @@ on:
 jobs:
     deploy-docker-containers:
         runs-on: ubuntu-latest
-        env:
-            DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         steps:
-        - name: Login to DockerHub Registry
-          run: echo ${{ env.DOCKER_PASSWORD }} | docker login -u ${{ env.DOCKER_USERNAME }} --password-stdin
         - name: Container in a Step Alpine
           uses: docker://alpine
         - name: Container in a Step Ubuntu
           uses: docker://ubuntu
         - name: Container in a Step Mint
           id: Linux-Mint-Step
-          continue-on-error: true
           uses: docker://linuxmintd/mint19.3-amd64
         - name: Container in a Step Debian
           uses: docker://debian
