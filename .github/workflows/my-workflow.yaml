@@ -5,6 +5,9 @@ on:
 jobs:
     deploy-docker-containers:
         runs-on: ubuntu-latest
+        env:
+            DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         steps:
         - name: Container in a Step Alpine
           uses: docker://alpine
@@ -12,6 +15,9 @@ jobs:
           uses: docker://ubuntu
         - name: Container in a Step Mint
           uses: docker://linuxmint/mint19.3-amd64
+          credentials:
+            username: ${{ DOCKER_USERNAME }}
+            password: ${{ DOCKER_PASSWORD }}
         - name: Container in a Step Debian
           uses: docker://debian
 
