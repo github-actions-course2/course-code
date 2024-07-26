@@ -1,0 +1,23 @@
+name: My-Worksflow
+on: 
+    workflow_dispatch
+
+jobs:
+    deploy-docker-containers:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Container in a Step
+          uses: docker://ncostin/alpine-ssh
+        
+
+
+
+
+
+
+
+
+
+
+   #extract-data-from-containers:
+    #    needs: deploy-docker-containers
