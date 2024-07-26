@@ -1,4 +1,4 @@
-name: My-Worksflow
+name: My-Workflow
 on: 
     workflow_dispatch
 
@@ -6,18 +6,27 @@ jobs:
     deploy-docker-containers:
         runs-on: ubuntu-latest
         steps:
-        - name: Container in a Step
+        - name: Container in a Step Alpine
           uses: docker://ncostin/alpine-ssh
+        - name: Container in a Step Ubuntu
+          uses: docker://ncostin/ubuntu-ssh
+        - name: Container in a Step Mint
+          uses: docker://ncostin/mint-ssh
+        - name: Container in a Step Debian
+          uses: docker://ncostin/debian-ssh
+
+        - name: Retrieve ip address of the host
+          run: |
+            #echo "::debug::"
+            ifconfig > networkdata.txt
+
         
 
-
-
-
-
-
-
-
-
-
-   #extract-data-from-containers:
-    #    needs: deploy-docker-containers
+    # connect-to-the-containers:
+    #     needs: deploy-docker-containers
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #     - name: Connect to the container
+    #       run: |
+            
+         
