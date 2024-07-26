@@ -1,7 +1,6 @@
 name: My-Workflow
 on: 
     workflow_dispatch
-
 jobs:
     deploy-docker-containers:
         runs-on: ubuntu-latest
@@ -16,6 +15,8 @@ jobs:
         - name: Container in a Step Ubuntu
           uses: docker://ubuntu
         - name: Container in a Step Mint
+          id: Linux-Mint-Step
+          continue-on-error: true
           uses: docker://linuxmint/mint19.3-amd64
         - name: Container in a Step Debian
           uses: docker://debian
