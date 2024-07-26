@@ -17,7 +17,7 @@ jobs:
         - name: Container in a Step Mint
           id: Linux-Mint-Step
           continue-on-error: true
-          uses: docker://linuxmint/mint19.3-amd64
+          uses: docker://linuxmintd/mint19.3-amd64
         - name: Container in a Step Debian
           uses: docker://debian
 
