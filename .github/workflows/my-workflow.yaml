@@ -7,18 +7,20 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: Container in a Step Alpine
-          uses: docker://ncostin/alpine-ssh
+          uses: docker://alpine
         - name: Container in a Step Ubuntu
-          uses: docker://ncostin/ubuntu-ssh
+          uses: docker://ubuntu
         - name: Container in a Step Mint
-          uses: docker://ncostin/mint-ssh
+          uses: docker://linuxmint/mint19.3-amd64
         - name: Container in a Step Debian
-          uses: docker://ncostin/debian-ssh
+          uses: docker://debian
 
-        - name: Retrieve ip address of the host
+        - name: Retrieve the running docker containers from the host
           run: |
-            #echo "::debug::"
-            ifconfig > networkdata.txt
+            docker ps -a > running_containers.txt
+            cat running_containers.txt
+
+
 
         
 
